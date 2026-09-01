@@ -1,0 +1,79 @@
+name: Materialize and validate native Android implementation
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.bootstrap/android-full.tgz.b64'
+      - '.github/workflows/materialize-android.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  materialize-build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+
+    steps:
+      - name: Check out
+        uses: actions/checkout@v4
+
+      - name: Reconstruct Android source tree
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f .bootstrap/android-full.tgz.b64
+          base64 -d .bootstrap/android-full.tgz.b64 > /tmp/android-full.tgz
+          rm -rf android
+          tar -xzf /tmp/android-full.tgz
+          test -f android/app/src/main/AndroidManifest.xml
+          test -f android/app/src/main/java/com/aviy99/bezeqinternetmonitor/repository/MonitoringRepository.kt
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Install Android SDK 37
+        run: sdkmanager "platforms;android-37" "build-tools;36.0.0"
+
+      - name: Set up Gradle 9.4.1
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '9.4.1'
+
+      - name: Run unit tests
+        working-directory: android
+        run: gradle :app:testDebugUnitTest --stacktrace
+
+      - name: Build debug APK
+        working-directory: android
+        run: gradle :app:assembleDebug --stacktrace
+
+      - name: Upload validated APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: BezeqInternetMonitor-debug
+          path: android/app/build/outputs/apk/debug/app-debug.apk
+          if-no-files-found: error
+
+      - name: Commit validated implementation
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf .bootstrap
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A android .bootstrap
+          if git diff --cached --quiet; then
+            echo "Nothing to commit"
+            exit 0
+          fi
+          git commit -m "Implement full native Android monitor v0.2.0"
+          git push
