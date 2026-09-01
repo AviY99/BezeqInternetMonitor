@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
     paths:
-      - '.bootstrap/android-full.tgz.b64'
+      - '.bootstrap/android-full.tgz.b64.part*'
       - '.github/workflows/materialize-android.yml'
   workflow_dispatch:
 
@@ -24,8 +24,9 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          test -f .bootstrap/android-full.tgz.b64
-          base64 -d .bootstrap/android-full.tgz.b64 > /tmp/android-full.tgz
+          test -f .bootstrap/android-full.tgz.b64.part01
+          cat .bootstrap/android-full.tgz.b64.part* | tr -d '\r\n ' | base64 -d > /tmp/android-full.tgz
+          gzip -t /tmp/android-full.tgz
           rm -rf android
           tar -xzf /tmp/android-full.tgz
           test -f android/app/src/main/AndroidManifest.xml
