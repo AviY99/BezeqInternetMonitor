@@ -1,0 +1,36 @@
+{
+  "purpose": "Historical Termux/Web project artifact inventory",
+  "authoritative_stable_files": [
+    "termux/monitor_v5.py",
+    "web/dashboard_v5_rooms.py"
+  ],
+  "archived_files": [
+    {"file":"monitor_v2.py","bytes":8650,"sha256":"1e528f73a5bcf3810014c3f37ef59958054b0e6eb20ec1994ed5f262baf3d777"},
+    {"file":"monitor_v3.py","bytes":16608,"sha256":"bfde2a485c30b073cd23313bec0dd3ace212fa0cb96a3d48ffc7bc700ed01886"},
+    {"file":"monitor_v4.py","bytes":16981,"sha256":"e5051d6ea17a6094b596e098ebf281fb8394f943c3cbed168e6d660293638eec"},
+    {"file":"monitor_v5.py","bytes":21547,"sha256":"5af6e65c9fa479830a274bed5e4ce94cb3f97fd3f9ccaf94963beff54920743d"},
+    {"file":"monitor_v5_testmode.py","bytes":23828,"sha256":"0917ab5b8bc93f29e7a826fef95c575ad3478cf78b09b77f2b7b75c14684bbe6"},
+    {"file":"monitor_v5_source_qualification.py","bytes":23828,"sha256":"0917ab5b8bc93f29e7a826fef95c575ad3478cf78b09b77f2b7b75c14684bbe6"},
+    {"file":"dashboard_v2.py","bytes":12441,"sha256":"249f35ab2a7023e57704d1b69516d544e1e9957e36705664c1d2f940f2eb67b1"},
+    {"file":"dashboard_v3.py","bytes":17901,"sha256":"8575f9ee63a371ce254068a848e42141916263ce7bda66fb28434e25f14ff2c8"},
+    {"file":"dashboard_v4.py","bytes":23668,"sha256":"a2b96d2b3841197a183373b4b183a2d737510e33812b62bad6b93435b3330f89"},
+    {"file":"dashboard_v5.py","bytes":27213,"sha256":"5064580e8ffc3ac89c8512e6095349fdb3b57f6882e33818376460e7eecba848"},
+    {"file":"dashboard_v5_rooms.py","bytes":50174,"sha256":"f8f6bdfdcf0fe1a2f6395251cc7baebc2867ff09011f69b16d5e3a040f2e5e39"},
+    {"file":"dashboard_v5_rooms_3x.py","bytes":51727,"sha256":"35dc7fd50c262e30c46765fa733abd60e235b131d8875be974d7672bc38bfc54"},
+    {"file":"dashboard_v5_rooms_progress.py","bytes":55583,"sha256":"3568e8bb83880470cae43b71749245e324a07f6fb4a3d732973681b52a6809fb"},
+    {"file":"dashboard_v5_rooms_testmode.py","bytes":61437,"sha256":"cdaad33ac8cacc7aad9031ee786dddd4374702f71bd413360aaf76b3e56cc822"},
+    {"file":"dashboard_v5_source_qualification.py","bytes":88360,"sha256":"dfb22d11893cc1a873d1a3b8fc5499fb1b3b5f1d1de53a2ab90aeaa5830988eb"},
+    {"file":"dashboard_v6.py","bytes":39630,"sha256":"21bb9df6b48db4a41f03aaf9d1e8583d83eeb79daa281bf72f7de39e43f48158"},
+    {"file":"dashboard_v7.py","bytes":55439,"sha256":"1e990e2329f4366be1504d39cc320ed131fe264689adb7711d66a3518dce8b78"},
+    {"file":"Start_Internet_Monitor.sh","bytes":837,"sha256":"7fba191c4417164d314be9eb939458a735f4fd5bd31a18a437e055eb3c5780ef"},
+    {"file":"Stop_Internet_Monitor.sh","bytes":213,"sha256":"4bc7b457f69a630f1a632cd10fb84d2989962749869791020290d2d532a96e20"},
+    {"file":"Start_Internet_Monitor_V6.sh","bytes":645,"sha256":"34652a20ded5008db9c6033b90eba034557a79e30b79e70b081ffa166e78c904"},
+    {"file":"Start_Internet_Monitor_V7.sh","bytes":692,"sha256":"8bbdcf97d3431b82d9ccda34a0c02beb7524840f8d2f0ff7f878a26a3a94b7ad"},
+    {"file":"Start_V5_With_Rooms.sh","bytes":776,"sha256":"7e12041c94e2f1c969b10efd0548108a62d0d0280a696dfae3b586c9d86b056b"}
+  ],
+  "missing_expected_files": [],
+  "notes": [
+    "The earliest hand-edited monitor.py prototype was not retained as a standalone file.",
+    "Runtime databases/logs/test-mode flags are intentionally excluded from version control."
+  ]
+}
