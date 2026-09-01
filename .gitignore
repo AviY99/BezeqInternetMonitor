@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+internet_monitor.db
+internet_monitor.db-*
+*.log
+internet_monitor_test_mode.json
+internet_monitor_test_mode_ack.json

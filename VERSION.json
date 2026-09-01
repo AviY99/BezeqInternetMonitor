@@ -1,0 +1,14 @@
+{
+  "snapshot": "termux-web-v0.5-stable",
+  "monitor": "termux/monitor_v5.py",
+  "dashboard": "web/dashboard_v5_rooms.py",
+  "database": "internet_monitor.db",
+  "dashboard_url": "http://127.0.0.1:8080",
+  "router_lan_ip": "10.0.0.138",
+  "source_qualification_rounds": 6,
+  "room_test_rounds": 3,
+  "rolling_samples": 6,
+  "event_start_confirm": 3,
+  "event_recovery_confirm": 3,
+  "event_merge_gap_seconds": 120
+}
